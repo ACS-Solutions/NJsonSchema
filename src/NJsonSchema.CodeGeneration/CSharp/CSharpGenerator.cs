@@ -101,7 +101,7 @@ namespace NJsonSchema.CodeGeneration.CSharp
                     Required = property.IsRequired && Settings.RequiredPropertiesMustBeDefined ? "Required.Always" : "Required.Default",
                     IsStringEnum = property.ActualSchema.IsEnumeration && property.ActualSchema.Type == JsonObjectType.String,
 
-                    Type = _resolver.Resolve(property, property.Type.HasFlag(JsonObjectType.Null), property.Name)
+                    Type = _resolver.Resolve(property, property.Type.HasFlag(JsonObjectType.Null) || !property.IsRequired, property.Name)
                 }).ToList();
 
                 var template = LoadTemplate("Class");

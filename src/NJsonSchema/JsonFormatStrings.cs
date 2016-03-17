@@ -44,5 +44,8 @@ namespace NJsonSchema
 
         /// <summary>Format for a hostname (DNS name).</summary>
         public const string Hostname = "hostname";
+
+		/// <summary>Format for a 32-bit integer</summary>
+		public const string Int32 = "int32";
     }
 }

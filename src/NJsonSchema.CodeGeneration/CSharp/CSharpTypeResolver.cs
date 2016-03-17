@@ -60,10 +60,13 @@ namespace NJsonSchema.CodeGeneration.CSharp
                 if (schema.IsEnumeration)
                     return AddGenerator(schema, typeNameHint);
 
-                if (schema.Format == JsonFormatStrings.Byte)
-                    return isNullable ? "byte?" : "byte";
+				if( schema.Format == JsonFormatStrings.Byte )
+					return isNullable ? "byte?" : "byte";
 
-                return isNullable ? "long?" : "long";
+				if( schema.Format == JsonFormatStrings.Int32 )
+					return isNullable ? "int?" : "int";
+
+				return isNullable ? "long?" : "long";
             }
 
             if (type.HasFlag(JsonObjectType.Boolean))
