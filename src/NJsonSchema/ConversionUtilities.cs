@@ -182,7 +182,7 @@ namespace NJsonSchema
             var caseFlag = false;
             foreach (char c in input)
             {
-                if (c == '-')
+                if (('-' == c) || ('_' == c))
                 {
                     caseFlag = true;
                 }
