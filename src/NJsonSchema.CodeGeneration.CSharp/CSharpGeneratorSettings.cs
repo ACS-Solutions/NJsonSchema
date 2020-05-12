@@ -51,12 +51,16 @@ namespace NJsonSchema.CodeGeneration.CSharp
             InlineNamedArrays = false;
             InlineNamedDictionaries = false;
             InlineNamedTuples = true;
+
+            this.EnumNameGenerator = new Naming.NonCasingEnumNameGenerator();
+            this.PropertyNameGenerator = new Naming.NonCasingPropertyNameGenerator();
+            this.TypeNameGenerator = new Naming.NonCasingTypeNameGenerator();
         }
 
         /// <summary>Gets or sets the .NET namespace of the generated types (default: MyNamespace).</summary>
         public string Namespace { get; set; }
 
-        /// <summary>Gets or sets a value indicating whether a required property must be defined in JSON 
+        /// <summary>Gets or sets a value indicating whether a required property must be defined in JSON
         /// (sets Required.Always when the property is required) (default: true).</summary>
         public bool RequiredPropertiesMustBeDefined { get; set; }
 
